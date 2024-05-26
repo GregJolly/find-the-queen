@@ -12,23 +12,23 @@ export default function Game(props) {
     {
       name: "Jack of Spades",
       index: "JS",
-      src: "./src/assets/jack_of_spades.png"
+      src: "./assets/jack_of_spades.png"
     },
     {
       name: "Queen of Hearts",
       index: "Q",
-      src: "./src/assets/queen_of_hearts.png"
+      src: "./assets/queen_of_hearts.png"
     },
     {
       name: "Jack of Clubs",
       index: "JC",
-      src: "./src/assets/jack_of_clubs.png"
+      src: "./assets/jack_of_clubs.png"
     }
 
     
   ])
   
-    const hidden = './src/assets/Card Design.jpg'
+    const hidden = './assets/Card Design.jpg'
 
     function shuffleCards(arr) {
 
