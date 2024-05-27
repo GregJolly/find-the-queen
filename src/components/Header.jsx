@@ -1,9 +1,28 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 
 
-export default function Header(props) {
-    
-    const { winner,setWinner,gameOver } = props 
+  export default function Header(props) {
+      
+      const { winner,setWinner,gameOver } = props 
+      const [ highScore, setHighScore ] = useState(0)
+
+    useEffect(()=>{
+      if ( gameOver &&winner !== null)
+      {
+        if (winner)
+        {
+          setHighScore((prevScore)=>(prevScore + 100 ))
+        }
+        else if(!winner) 
+        {
+          setHighScore((prevScore)=>( prevScore -100 ))
+        }
+      }
+
+      
+    },[winner]);
 
   return (
     
@@ -14,7 +33,10 @@ export default function Header(props) {
         \ text-white flex-1 '> You lost her </h1> ) ): 
         (<h1 className='text-center text-4xl md:text-6xl lg-9xl 
         \ text-white flex-1 '> You found her! </h1> )}
-        <i className="fa-solid text-3xl text-white px-5 fa-chess-queen"></i>
+        <label className='rounded-full flex font-serif text-2xl items-center justify-center text-red-600 font-bold bg-white px-20 py-2 '>
+          {highScore}
+          {console.log(highScore)}
+        </label>
     </div>
   )
 }
